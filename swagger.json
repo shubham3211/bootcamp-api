@@ -1,0 +1,20 @@
+{
+  "swaggerDefinition": {
+    "info": {
+      "title": "Bootcamp Api",
+      "version": "1.0.0",
+      "description": "Bootcamp Api Documentation",
+      "servers": ["http://localhost:5001"]
+    }
+  },
+  "apis": [
+    "./api/routes/imageUploadRoutes.js",
+    "./api/routes/studentRoutes.js",
+    "./api/routes/taskRoutes.js",
+    "./api/routes/teacherRoutes.js",
+    "./api/models/student.js",
+    "./api/models/studentTask.js",
+    "./api/models/task.js",
+    "./api/models/teacher.js"
+  ]
+}
