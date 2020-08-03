@@ -1,6 +1,7 @@
 const Teacher = require("../models/teacher");
 const { createJwt, jwtVerify } = require("../../utils/jwt");
 const logger = require("../../config/logger");
+const { CustomError } = require("../services/customError");
 
 const deleteTeacher = async (req, res) => {
   try {
