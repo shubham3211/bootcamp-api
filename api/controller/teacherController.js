@@ -19,6 +19,17 @@ const deleteTeacher = async (req, res) => {
 const createTeacher = async (req, res) => {
   try {
     const { email, firstname, lastname, password } = req.body;
+
+    if (!email || !firstname || !lastname || !password) {
+      throw new CustomError({ message: "Incomplete Credentials" });
+    }
+
+    if (password.length < 8) {
+      throw new CustomError({
+        message: "Password length should be more than 7"
+      });
+    }
+
     let currentTeacher = await Teacher.findOne({ email });
 
     if (currentTeacher) {
@@ -46,12 +57,6 @@ const loginTeacher = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
       throw new CustomError({ message: "Incomplete Credentials" });
-    }
-
-    if (password.length < 8) {
-      throw new CustomError({
-        message: "Password length should be more than 7"
-      });
     }
 
     const currentTeacher = await Teacher.findOne({ email });
