@@ -10,11 +10,9 @@ const isLogin = async (req, res, next) => {
     if (!authorizationHeader) {
       throw new CustomError({ message: "Unauthorized", status: 401 });
     }
-    logger.info(authorizationHeader);
     const decodedToken = await jwtVerify({
       token: authorizationHeader.split(" ")[1]
     });
-    logger.info(decodedToken)
     if (!decodedToken) {
       throw new CustomError({ message: "Unauthorized", status: 401 });
     }
