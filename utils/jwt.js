@@ -16,7 +16,6 @@ const createJwt = payload => {
 const jwtVerify = async ({ token }) => {
   try {
     const jwtVerifyAsync = promisify(jwt.verify);
-    console.log('token :>> ', token);
     const decoded = await jwtVerifyAsync(token, privateKey);
     return decoded;
   } catch (err) {
